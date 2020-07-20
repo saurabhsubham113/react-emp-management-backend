@@ -55,6 +55,20 @@ const userSchema = new mongoose.Schema({
             required: true
         }
     }],
+    details:{
+        dob:{
+            type:Date
+        },
+        passport:{
+            type:String,
+            trim:true
+        },
+        aadhar:{
+            type:Number,
+            maxlength:12,
+            
+        }
+    },
     flag:{
         type:Number,
         default:0
