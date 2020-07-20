@@ -11,9 +11,9 @@ function createResponse(error,data){
 
     return result
 }
-function nameFormatter(name){
+function nameFormatter(name='subham'){
     const fname = name.charAt(0).toUpperCase()
-    const lname = name.substr(1,name.length).toLowerCase
+    const lname = name.substr(1,name.length).toLowerCase()
     return fname+lname
 }
 

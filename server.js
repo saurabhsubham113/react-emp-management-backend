@@ -19,15 +19,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(morgan('dev'))
 
 app.use(userRouter)
-app.get('/' ,async (req,res) => {
-    try {
-        let ans = await mail.createMail('saurabhsubham@gmail.com','<h1>welcome</h1>')
-        console.log(ans);
-        res.send('mail sent')
-    } catch (e) {
-        res.send(e.message)
-    }
-})
+
 
 const port = process.env.PORT
 app.listen(port,()=>{

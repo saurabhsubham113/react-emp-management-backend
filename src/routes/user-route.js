@@ -56,7 +56,9 @@ router.post('/add',auth,async (req,res) => {
             throw new Error('You do not have valid permission to perform for this action')
         console.log('add function');
         await user.save()
-        const name = `${utils.nameFormatter(req.body.fname)} ${utils.nameFormatter(req.body.lname)}`
+        const fname = utils.nameFormatter(req.body.fname)
+        const lname = utils.nameFormatter(req.body.lname)
+        const name = `${fname} ${lname}`
         await mailer.onboardingMail(req.body.email,name,user._id)
         res.send(utils.createResponse(undefined,user))
     } catch (e) {
