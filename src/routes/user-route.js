@@ -8,6 +8,7 @@ const router = express.Router()
 
 //logging in the user
 router.post('/login', async (req,res) => {
+    console.log(req.body.email, req.body.password);
     try {
         //creating our own fuction
         const user = await User.findByCredentials(req.body.email, req.body.password) 
@@ -17,8 +18,8 @@ router.post('/login', async (req,res) => {
         res.send(utils.createResponse(undefined,{user,token}))
     
     } catch (e) {        
-        console.log(e);
-        res.status(400).send(utils.createResponse(e.message))
+        console.log(e.message);
+        res.send(utils.createResponse(' Please check your email or Password'))
         
     }
 })

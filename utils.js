@@ -3,7 +3,7 @@ function createResponse(error,data){
 
     if (error) {
         result['status'] = 'error'
-        result['data'] = error
+        result['error'] = error
     } else {
         result['status'] = 'success'
         result['data'] = data
